@@ -29,22 +29,32 @@
     height: auto !important;
 }
 
-.image-container {
-    max-width: 100% !important;
-    height: max-content !important;
-    padding: 20%;
-}
-
-.image-container img {
-    border-radius: 1em;
-}
-
 .section-paragraph {
     padding: 4vh 10vw !important;
 }
 
 .pointer {
     cursor: pointer;
+}
+
+.profile-container {
+    .right-section {
+        margin: 0 !important;
+        padding: 0 !important;
+        padding-top: 0 !important;
+
+        .image-container {
+            max-width: 80% !important;
+            height: auto !important;
+            padding-top: 0 !important;
+            margin-top: 0 !important;
+        }
+        
+        .image-container img {
+            border-radius: 1em;
+            margin-top: 0 !important;
+        }
+    }
 }
 
 /* default classnames */
@@ -64,6 +74,9 @@
 .ant-divider {
     border-color: white !important;
 }
+
+
+
 
 @media screen and (max-width: 430px) {
     .profile-container {
@@ -93,7 +106,7 @@
     .profile-container {
         .left-section {
             height: max-content !important;
-            padding: 10% 2%;
+            padding: 5% 2% 2% 2%;
             text-align: center;
 
             .ant-row {
