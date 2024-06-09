@@ -5,3 +5,110 @@
     justify-content: center !important;
     height: 100vh;
 }
+
+.menu-container {
+    display: flex;
+    justify-content: end;
+}
+
+.header-title {
+    color: white !important;
+    font-family: fantasy !important;
+}
+
+.specialty-title {
+    font-family: var(--primary-font-bold);
+}
+
+.main-content {
+    height: 100% !important;
+    background-color: #001529;
+}
+
+.main-layout {
+    height: auto !important;
+}
+
+.image-container {
+    max-width: 100% !important;
+    height: max-content !important;
+    padding: 20%;
+}
+
+.image-container img {
+    border-radius: 1em;
+}
+
+.section-paragraph {
+    padding: 4vh 10vw !important;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+/* default classnames */
+.ant-menu {
+    z-index: 1 !important;
+}
+.ant-typography {
+    margin-bottom: 0 !important;
+    color: white !important;
+}
+
+.ant-col, .ant-row {
+    color: white !important;
+    font-family: var(--primary-font-regular) !important;
+}
+
+.ant-divider {
+    border-color: white !important;
+}
+
+@media screen and (max-width: 430px) {
+    .profile-container {
+        .left-section {
+            height: max-content !important;
+            padding: 10% 2%;
+            text-align: center;
+
+            .ant-row {
+                display: flex;
+                justify-content: center;
+            }
+        }
+        .right-section {
+            height: max-content !important;
+            padding: 0 !important;
+
+            .image-container {
+                padding: 5% !important;
+                width: 80%;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .profile-container {
+        .left-section {
+            height: max-content !important;
+            padding: 10% 2%;
+            text-align: center;
+
+            .ant-row {
+                display: flex;
+                justify-content: center;
+            }
+        }
+        .right-section {
+            height: max-content !important;
+            padding: 0 !important;
+
+            .image-container {
+                padding: 5% !important;
+                width: 60%;
+            }
+        }
+    }
+}

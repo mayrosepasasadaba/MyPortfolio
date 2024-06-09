@@ -17,4 +17,32 @@ code {
   --secondary-color: #F2CC96;
   --tertiary-color: #F7EBC9;
   --fourth-color: #814906;
+
+  --primary-font-light: 'Poppins-Light';
+  --primary-font-regular: 'Poppins-Regular';
+  --primary-font-medium: 'Poppins-Medium';
+  --primary-font-semibold: 'Poppins-SemiBold';
+  --primary-font-bold: 'Poppins-Bold';
+}
+
+/* FONTS */
+@font-face {
+  font-family: "Poppins-Light";
+  src: url("../src/assets/fonts/Poppins/static/Poppins-Light.ttf");
+}
+@font-face {
+  font-family: "Poppins-Medium";
+  src: url("../src/assets/fonts/Poppins/static/Poppins-Medium.ttf");
+}
+@font-face {
+  font-family: "Poppins-Regular";
+  src: url("../src/assets/fonts/Poppins/static/Poppins-Regular.ttf");
+}
+@font-face {
+  font-family: "Poppins-SemiBold";
+  src: url("../src/assets/fonts/Poppins/static/Poppins-SemiBold.ttf");
+}
+@font-face {
+  font-family: "Poppins-Bold";
+  src: url("../src/assets/fonts/Poppins/static/Poppins-Bold.ttf");
 }
