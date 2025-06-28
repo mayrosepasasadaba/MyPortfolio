@@ -107,6 +107,13 @@
         width: 80%;
       }
     }
+
+    .specialty-title {
+      font-size: 2em;
+    }
+  }
+  .header-title {
+    display: none !important;
   }
 }
 
@@ -130,6 +137,30 @@
         padding: 5% !important;
         width: 60%;
       }
+    }
+  }
+}
+
+@media screen and (max-width: 990px) {
+  .profile-container {
+    .left-section {
+      height: min-content !important;
+      text-align: center;
+
+      .ant-row {
+        display: flex;
+        justify-content: center;
+      }
+    }
+    .right-section {
+      height: min-content !important;
+      .image-container {
+        padding: 5% !important;
+        width: 40%;
+      }
+    }
+    .specialty-title {
+      font-size: 1.5em;
     }
   }
 }

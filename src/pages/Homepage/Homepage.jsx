@@ -18,9 +18,9 @@ export default function Homepage() {
     { key: "project", label: "Projects" },
   ];
   const homeRef = React.useRef();
-  const aboutRef = React.useRef();
   const projectRef = React.useRef();
   const contactRef = React.useRef();
+  const [currentPage, setCurrentPage] = React.useState("home");
 
   const scrollToSection = (sectionRef) => {
     sectionRef.current.scrollIntoView({ behavior: "smooth" });
@@ -29,15 +29,18 @@ export default function Homepage() {
   const handleMenuClick = (e) => {
     switch (e.key) {
       case "home":
+        setCurrentPage("home");
         scrollToSection(homeRef);
         break;
       case "about":
-        scrollToSection(aboutRef);
+        setCurrentPage("about");
         break;
       case "project":
+        setCurrentPage("home");
         scrollToSection(projectRef);
         break;
       case "contact":
+        setCurrentPage("home");
         scrollToSection(contactRef);
         break;
       default:
@@ -66,54 +69,47 @@ export default function Homepage() {
       </Header>
       <Content className="main-content">
         <Container fluid className="">
-          <div>
-            <Row className="profile-container">
-              <Col xs={24} md={24} lg={12} className="center left-section">
-                <div>
-                  <Row className="role-title">Software Engineer</Row>
-                  <Row className="mt-3">
-                    <Title level={1} className="specialty-title">
-                      Hi! My name is Mayrose Pasasadaba
-                    </Title>
-                  </Row>
-                  <Row className="mt-4 profile-buttons">
-                    <Button
-                      onClick={() => scrollToSection(projectRef)}
-                      className="project"
-                    >
-                      Projects
-                    </Button>
-                    <a
-                      className="linkedin"
-                      href="http://linkedin.com/in/mayrose-pasasadaba"
-                      target="_blank"
-                      without
-                      rel="noreferrer"
-                    >
-                      LinkedIn
-                    </a>
-                  </Row>
-                </div>
-              </Col>
-              <Col xs={24} md={24} lg={12} className="center right-section">
-                <div className="image-container">
-                  <img src={profile} alt="img" className="w-100" />
-                </div>
-              </Col>
-            </Row>
-          </div>
-
-          <div ref={aboutRef}>
-            <AboutMe />
-          </div>
-
-          <div ref={projectRef}>
-            <Project />
-          </div>
-
-          <div ref={contactRef}>
-            <Contacts />
-          </div>
+          {currentPage === "home" && (
+            <div className="profile-container">
+              <Row>
+                <Col xs={24} md={24} lg={12} className="center left-section">
+                  <div>
+                    <Row className="role-title">Software Engineer</Row>
+                    <Row className="mt-3">
+                      <Title level={1} className="specialty-title">
+                        Hi! My name is Mayrose Pasasadaba
+                      </Title>
+                    </Row>
+                    <Row className="mt-4 profile-buttons">
+                      <Button
+                        onClick={() => scrollToSection(projectRef)}
+                        className="project"
+                      >
+                        Projects
+                      </Button>
+                      <a
+                        className="linkedin"
+                        href="http://linkedin.com/in/mayrose-pasasadaba"
+                        target="_blank"
+                        without
+                        rel="noreferrer"
+                      >
+                        LinkedIn
+                      </a>
+                    </Row>
+                  </div>
+                </Col>
+                <Col xs={24} md={24} lg={12} className="center right-section">
+                  <div className="image-container">
+                    <img src={profile} alt="img" className="w-100" />
+                  </div>
+                </Col>
+              </Row>
+            </div>
+          )}
+          <div ref={projectRef}>{currentPage === "home" && <Project />}</div>
+          <div ref={contactRef}>{currentPage === "home" && <Contacts />}</div>
+          {currentPage === "about" && <AboutMe />}
         </Container>
       </Content>
     </Layout>

@@ -1,15 +1,12 @@
-// Libraries
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-
-// Resources
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 // Components
-import Homepage from './pages/Homepage/Homepage';
+import Homepage from "./pages/Homepage/Homepage";
 
 function App() {
   return (
     <Router>
       <Routes>
-        <Route element={<Homepage/>} path='/'/>
+        <Route element={<Homepage />} path="/" />
       </Routes>
     </Router>
   );
