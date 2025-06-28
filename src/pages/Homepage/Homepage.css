@@ -1,0 +1,135 @@
+.main-content {
+  height: 100% !important;
+}
+
+.menu-container {
+  display: flex;
+  justify-content: end;
+}
+
+.homepage-header {
+  display: flex;
+  align-items: center;
+  background-color: white;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.header-title {
+  font-family: fantasy !important;
+}
+
+.main-layout {
+  height: auto !important;
+}
+
+.section-paragraph {
+  padding: 4vh 10vw !important;
+}
+
+.profile-container {
+  .left-section {
+    padding: 0 5%;
+  }
+
+  .right-section {
+    margin: 0 !important;
+    padding: 0 !important;
+    padding-top: 0 !important;
+
+    .image-container {
+      max-width: 60% !important;
+      height: auto !important;
+      padding-top: 0 !important;
+      margin-top: 0 !important;
+    }
+
+    .image-container img {
+      border-radius: 1em;
+      margin-top: 0 !important;
+    }
+  }
+}
+
+.role-title {
+  color: var(--primary-color);
+  font-size: 20px;
+}
+
+.specialty-title {
+  font-family: var(--primary-font-bold);
+  color: black;
+}
+
+.profile-buttons {
+  .project {
+    margin-right: 1em;
+    background-color: var(--primary-color);
+  }
+
+  .project:hover {
+    background-color: var(--primary-color) !important;
+    color: initial !important;
+    border-color: transparent !important;
+  }
+
+  .linkedin {
+    text-decoration: none;
+    background-color: #0077b5;
+    color: white;
+    display: inline-block;
+    justify-content: center;
+    vertical-align: middle;
+    border-radius: 4px;
+    padding: 5px 10px;
+  }
+}
+
+@media screen and (max-width: 430px) {
+  .profile-container {
+    .left-section {
+      height: max-content !important;
+      padding: 10% 2%;
+      text-align: center;
+
+      .ant-row {
+        display: flex;
+        justify-content: center;
+      }
+    }
+    .right-section {
+      height: max-content !important;
+      padding: 0 !important;
+
+      .image-container {
+        padding: 5% !important;
+        width: 80%;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 820px) {
+  .profile-container {
+    .left-section {
+      height: max-content !important;
+      padding: 5% 10% 2% 10%;
+      text-align: center;
+
+      .ant-row {
+        display: flex;
+        justify-content: center;
+      }
+    }
+    .right-section {
+      height: max-content !important;
+      padding: 0 !important;
+
+      .image-container {
+        padding: 5% !important;
+        width: 60%;
+      }
+    }
+  }
+}
