@@ -1,14 +1,26 @@
 import * as React from "react";
 import { Container } from "react-bootstrap";
-import { Row, Col, Layout, Menu, Button } from "antd";
-import { Content, Header } from "antd/es/layout/layout";
-import Title from "antd/es/typography/Title";
+import {
+  Row,
+  Col,
+  Layout,
+  Menu,
+  Button,
+  Grid,
+  Typography,
+  Dropdown,
+} from "antd";
 import Project from "./Projects/Project";
 import Contacts from "./Contacts/Contacts";
 import AboutMe from "./AboutMe/AboutMe";
+import { MenuOutlined } from "@ant-design/icons";
 import profile from "../../assets/images/logo.png";
 import "../../styles/CommonStyles.css";
 import "./Homepage.css";
+
+const { Header, Content } = Layout;
+const { Title } = Typography;
+const { useBreakpoint } = Grid;
 
 export default function Homepage() {
   const sections = [
@@ -21,6 +33,7 @@ export default function Homepage() {
   const projectRef = React.useRef();
   const contactRef = React.useRef();
   const [currentPage, setCurrentPage] = React.useState("home");
+  const screens = useBreakpoint(); // responsive info
 
   const scrollToSection = (sectionRef) => {
     sectionRef.current.scrollIntoView({ behavior: "smooth" });
@@ -48,29 +61,56 @@ export default function Homepage() {
     }
   };
 
+  const menuItems = (
+    <Menu>
+      {sections.map((section) => (
+        <Menu.Item key={section.key} onClick={handleMenuClick}>
+          {section.label}
+        </Menu.Item>
+      ))}
+    </Menu>
+  );
+
   return (
     <Layout className="main-layout" ref={homeRef}>
       <Header className="homepage-header">
-        <div className="demo-logo" />
         <Title level={5} className="header-title">
           Maywose Portfolio
         </Title>
-        <Menu
-          theme="light"
-          mode="horizontal"
-          items={sections}
-          style={{
-            flex: 1,
-            minWidth: 0,
-          }}
-          className="menu-container"
-          onClick={handleMenuClick}
-        />
+        {screens.md ? (
+          <Menu
+            theme="dark"
+            mode="horizontal"
+            items={sections}
+            style={{
+              flex: 1,
+              minWidth: 0,
+            }}
+            className="menu-container"
+            onClick={handleMenuClick}
+          />
+        ) : (
+          <>
+            <Dropdown
+              overlay={menuItems}
+              trigger={["click"]}
+              placement="topRight"
+            >
+              <Button
+                icon={<MenuOutlined />}
+                style={{
+                  position: "absolute",
+                  right: 16,
+                }}
+              />
+            </Dropdown>
+          </>
+        )}
       </Header>
-      <Content className="main-content">
+      <Content className="">
         <Container fluid className="">
           {currentPage === "home" && (
-            <div className="profile-container">
+            <div>
               <Row>
                 <Col xs={24} md={24} lg={12} className="center left-section">
                   <div>
@@ -79,6 +119,11 @@ export default function Homepage() {
                       <Title level={1} className="specialty-title">
                         Hi! My name is Mayrose Pasasadaba
                       </Title>
+                    </Row>
+                    <Row className="top-profile">
+                      <div className="image-container center">
+                        <img src={profile} alt="img" className="w-100 image" />
+                      </div>
                     </Row>
                     <Row className="mt-4 profile-buttons">
                       <Button
